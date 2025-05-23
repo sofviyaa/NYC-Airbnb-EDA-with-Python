@@ -25,12 +25,19 @@ neighbourhood_groups = (
     else []
 )
 
-# Custom CSS for purple gradient sidebar
 st.markdown(
     """
     <style>
     [data-testid="stSidebar"] {
         background: linear-gradient(135deg, #232526 35%, #414345 65%);
+    }
+    .main {
+        background-color: #414345;
+    }
+    h1 {
+        background: linear-gradient(to right, #FF5A5F, #00A699);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     </style>
     """,
@@ -62,8 +69,8 @@ if "neighbourhood_group" in df.columns:
 
 st.markdown(
     """
-    <h1 style='text-align: center; color: #FF5A5F; font-weight:700;'>New York Airbnb Dashboard</h1>
-    <p style='text-align: center; font-size: 18px; color: #333;'>
+    <h1 style='text-align: center; font-weight:700;'>New York Airbnb Dashboard</h1>
+    <p style='text-align: center; font-size: 18px; color: #fff;'>
         Gain insights into the New York Airbnb market with interactive analytics and visualizations.
     </p>
     """,
@@ -180,3 +187,9 @@ if "latitude" in df.columns and "longitude" in df.columns:
         st.plotly_chart(map_fig, use_container_width=True)
     else:
         st.info("No map data available for the selected filters.")
+
+# Footer
+st.markdown(
+    "<footer style='text-align: center;'><p>&copy; 2024 Sofviyah Aprillani. All rights reserved.</p></footer>",
+    unsafe_allow_html=True,
+)
